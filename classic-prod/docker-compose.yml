@@ -1,0 +1,6 @@
+version: "3.6"
+services:
+  templates:
+    build: image
+    ports:
+      - "8081:8080"
