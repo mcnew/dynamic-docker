@@ -1,0 +1,8 @@
+services:
+  templates:
+    image: dynamic
+    ports:
+      - "8083:8080"
+    environment:
+      - REPOSITORY=https://raw.githubusercontent.com/mcnew/dynamic-templates
+      - BRANCH=main
