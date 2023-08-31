@@ -1,0 +1,42 @@
+openapi: 3.0.3
+info:
+  title: Template example
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/template
+    description: classic dev
+  - url: http://localhost:8081/template
+    description: classic prod
+  - url: http://localhost:8082/template
+    description: dynamic dev
+  - url: http://localhost:8083/template
+    description: dynamic prod
+tags:
+  - name: template
+    description: template eval
+paths:
+  /{templateId}:
+    post:
+      tags:
+        - template
+      parameters: 
+        - in: path
+          name: templateId
+          schema:
+            type: string
+          example: test1
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            example: {"name": "Someone"}
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/html:
+              schema:
+                type: string
