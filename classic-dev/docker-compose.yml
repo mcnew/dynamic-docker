@@ -1,0 +1,8 @@
+version: "3.6"
+services:
+  templates:
+    image: classic
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./templates:/var/lib/templates 
