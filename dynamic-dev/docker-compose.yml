@@ -1,0 +1,9 @@
+version: "3.6"
+services:
+  templates:
+    image: dynamic
+    ports:
+      - "8082:8080"
+    environment:
+      - REPOSITORY=https://raw.githubusercontent.com/mcnew/dynamic-templates
+      - BRANCH=develop
