@@ -1,3 +1,14 @@
+FROM ubuntu AS builder
+
+RUN apt update \
+ && apt install -y unzip \
+ && mkdir /usr/app
+
+ADD https://github.com/mcnew/dynamic-templates/archive/refs/heads/main.zip /tmp/
+
+RUN cd /usr/app \
+ && unzip /tmp/main.zip
+
 FROM classic
 
-COPY templates $TEMPLATES
+COPY --from=builder /usr/app/dynamic-templates-main $TEMPLATES
